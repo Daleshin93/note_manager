@@ -1,0 +1,13 @@
+username = input('Введите имя пользователя: ')
+title = input('Заголовок заметки: ')
+content = input('Описание заметки: ')
+status = input('Статус: ')
+created_date = input('Дата создания заметки: ')
+issue_date = input('Дата дедлайна: ')
+
+print('Имя пользователя:', username)
+print('Заголовок:', title)
+print('Описание заметки:', content)
+print('Ваш статус:', status)
+print('Дата создания заметки:', created_date)
+print('Дата дедлайна:', issue_date)
