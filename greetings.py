@@ -1,9 +1,9 @@
-username = input('Введите имя пользователя: ')
-title = input('Заголовок заметки: ')
-content = input('Описание заметки: ')
-status = input('Статус: ')
-created_date = input('Дата создания заметки: ')
-issue_date = input('Дата дедлайна: ')
+username = 'Дмитрий'
+title = 'Заголовок'
+content = 'Описание'
+status = 'В работе'
+created_date = '13-01-2025'
+issue_date = '14-01-2025'
 
 print(f'Имя пользователя: {username}')
 print(f'Заголовок: {title}')
