@@ -1,20 +1,35 @@
 status = input('Статус: ')
-print(status)
+note = ['username', 'titles', 'content', status, 'temp_created_date', 'temp_issue_date']
+statuses = ['В работе', 'Отложено', 'Выполнено']
 
-statuses = {'1': 'В работе', '2': 'Отложено', '3': 'Выполнено'}  # Создал словарь для статусов
-keys = list(statuses.keys())                                     # Создал список из ключей
-values = list(statuses.values())                                 # Создал список из значений
-list_key_values = [ f'{k}: {v}' for k, v in zip(keys, values) ]  # Объеденил списки с изменением формата
-column_statuses ='\n'.join(list_key_values)                      # Форматирование для вывода в столбец
-while True:                                                      # Создания цикла для изменнения статуса
-    new_status = input(f'Выберите новый статус для заметки:\n'   # Присвоение переменной значения на основании ввода
-          f'{column_statuses}\n')
-    value = statuses.get(new_status)                             # Поиск значения из словаря по ключу
-    if new_status in keys:                                       # Условие: если значение переменной есть в списке
-        print(f'Статус заметки изменён на: {value}.')
+while True:
+    new_status = input(f'\nВыберите новый статус для заметки:\n'
+                       f'1- {statuses[0]}\n'
+                       f'2- {statuses[1]}\n'
+                       f'3- {statuses[2]}\n')
+    if new_status in statuses:
+        note[3] = new_status
+        print(f'\nСтатус заметки изменён на: {new_status}.')
         break
-    elif new_status in values:                                   # Или же значение переменной есть в другом списке
-        print(f'Статус заметки изменён на: {new_status}.')
+    elif new_status == '1':
+        note[3] = statuses[0]
+        print(f'\nСтатус заметки изменён на: {statuses[0]}.')
+        break
+    elif new_status == '2':
+        note[3] = statuses[1]
+        print(f'\nСтатус заметки изменён на: {statuses[1]}.')
+        break
+    elif new_status == '3':
+        note[3] = statuses[2]
+        print(f'\nСтатус заметки изменён на: {statuses[2]}.')
         break
     else:
-        print(f'Статус "{new_status}" не найден, повторите попытку.')
+        print(f'\nСтатус "{new_status}" не найден, повторите попытку.')
+
+print(f'\nИмя пользователя: {note[0]} \n'
+      f'Заголовки заметки: \n'
+      f'{note[1]} \n'
+      f'Описание заметки: {note[2]} \n'
+      f'Статус заметки: {note[3]} \n'
+      f'Дата создания заметки: {note[4]} \n'
+      f'Дата дедлайна: {note[5]}')
