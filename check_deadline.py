@@ -1,14 +1,10 @@
 from datetime import datetime
 
-while True:
-    current_date = input('Дата создания заметки, (укажите дату в формате "дд-мм-гггг"): ')
-    try:
-        dt_current = datetime.strptime(current_date, '%d-%m-%Y')
-        break
-    except ValueError:
-        print('Неверный формат даты, введите в указаном формате.')
+today = datetime.today()
+format_today = datetime.strftime(today, '%d-%m-%Y')
+dt_today = datetime.strptime(format_today, '%d-%m-%Y')
 
-print(f'Текущая дата {current_date}')
+print(f'Текущая дата {format_today}')
 
 while True:
     issue_date = input('Дата дедлайна, (укажите дату в формате "дд-мм-гггг"): ')
@@ -18,8 +14,8 @@ while True:
     except ValueError:
         print('Неверный формат даты, введите в указаном формате.')
 
-if dt_current < dt_issue:
-    delta = dt_issue - dt_current
+if dt_today < dt_issue:
+    delta = dt_issue - dt_today
     if delta.days % 10 == 1:
         days = 'день'
     elif delta.days % 10 < 5:
@@ -27,8 +23,8 @@ if dt_current < dt_issue:
     else:
         days = 'дней'
     print(f'До дедлайна: {delta.days} {days}.')
-elif dt_current > dt_issue:
-    delta = dt_current - dt_issue
+elif dt_today > dt_issue:
+    delta = dt_today - dt_issue
     if delta.days % 10 == 1 :
         days = 'день'
     elif delta.days % 10 < 5 :
@@ -36,6 +32,5 @@ elif dt_current > dt_issue:
     else:
         days = 'дней'
     print(f'Внимание! Дедлайн истек {delta.days} {days} назад.')
-elif dt_current == dt_issue:
+elif dt_today == dt_issue:
     print(f'Дедлайн сегодня 😱.')
-
